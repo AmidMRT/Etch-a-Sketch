@@ -18,7 +18,6 @@ function genCell (x) {
         newDiv = document.createElement("div");
         newDiv.className = "cell";
         newDiv.style.boxSizing = "border-box";
-        newDiv.style.border = "solid 1px red";
         newDiv.style.width = `${600/x}px`;
         newDiv.style.height = `${600/x}px`;
         grid.appendChild(newDiv);
