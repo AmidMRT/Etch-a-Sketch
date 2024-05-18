@@ -1,10 +1,21 @@
+.gridContainer {
+    display: flex;
+    justify-content: center;
+}
+
+
 .grid {
     box-sizing: border-box;
-    width: 800px;
-    height: 800px;
+    width: 600px;
+    height: 600px;
     /*border: solid 2px black;*/
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
 }
 
+.size {
+    display: flex;
+    justify-content: center;
+    margin: 40px;
+}

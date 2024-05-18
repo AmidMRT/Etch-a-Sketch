@@ -1,30 +1,48 @@
-const grid = document.querySelector(".grid");
+const gridContainer = document.querySelector(".gridContainer");
 let newDiv;
 let x = 20;
+let grid;
+genCell(x);
 
-for (let i =0; i<(x*x); i++) {
-    newDiv = document.createElement("div");
-    newDiv.classList.add("cell");
-    newDiv.style.boxSizing = "border-box";
-    newDiv.style.border = "solid 1px red";
-    newDiv.style.width = `${800/x}px`;
-    newDiv.style.height = `${800/x}px`;
-    grid.appendChild(newDiv);
-    console.log(newDiv.className)
+let cell = document.querySelectorAll(".cell");
+let cellArray = Array.from(cell);
+cellArray.forEach(cellColor);
+cellArray.forEach(cellDecolor);
+
+
+function genCell (x) {
+    grid = document.createElement("div");
+    grid.className = "grid";
+    gridContainer.appendChild(grid);
+    for (let i =0; i<(x*x); i++) {
+        newDiv = document.createElement("div");
+        newDiv.className = "cell";
+        newDiv.style.boxSizing = "border-box";
+        newDiv.style.border = "solid 1px red";
+        newDiv.style.width = `${600/x}px`;
+        newDiv.style.height = `${600/x}px`;
+        grid.appendChild(newDiv);
+        console.log(newDiv.className)
+    }
 }
 
-const cellElement = document.querySelectorAll(".cell");
-
-const cellArray = Array.from(cellElement);
-
-function cellColor (cell) {
-    cell.addEventListener("mouseover", ()=> {
-    cell.style.backgroundColor = "blue";
+function cellColor (cellElement) {
+    cellElement.addEventListener("mouseover", ()=> {
+    cellElement.style.backgroundColor = "blue";
 })}
 
-function cellDecolor (cell) {
-    cell.addEventListener("mouseout", ()=> {
-    cell.style.backgroundColor = "";})}
+function cellDecolor (cellElement) {
+    cellElement.addEventListener("mouseout", ()=> {
+    cellElement.style.backgroundColor = "";
+})}
 
-cellArray.forEach(cellColor)
-cellArray.forEach(cellDecolor)
+const sizeButton = document.querySelector(".sizeButton");
+sizeButton.addEventListener("click", ()=>{
+    size = prompt('please enter grid size');
+    gridContainer.removeChild(grid);
+    genCell(size);
+    cell = document.querySelectorAll(".cell");
+    cellArray = Array.from(cell);
+    cellArray.forEach(cellColor);
+    cellArray.forEach(cellDecolor);
+})
