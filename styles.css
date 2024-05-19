@@ -25,3 +25,14 @@ body {
     justify-content: center;
     margin: 40px;
 }
+
+.drawing {
+    display: flex;
+    justify-content: center;
+    margin: 40px;
+}
+
+.drawing button {
+    box-sizing: border-box;
+    margin: 20px ;
+}
